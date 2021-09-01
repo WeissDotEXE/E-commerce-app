@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styles from '../Styles/AddProduct.module.scss';
 
-
+import AdminNav from './AdminNav';
 const AddProduct=()=>{
     return(
         <div className={styles.addProduct}>
-            <h1>Helo</h1>
+            <AdminNav />
+            <div className={styles.content}>
+                <h1>AddProduct</h1>
+            </div>
         </div>
     )
 }

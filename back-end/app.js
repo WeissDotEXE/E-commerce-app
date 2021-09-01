@@ -23,6 +23,11 @@ const productsRoute=require('./routes/products');
 app.use('/products',productsRoute);
 app.use('/admin',adminRoute);
 
+//handler for error 404
+app.use((req,res,next)=>{
+    res.status(404).send("Sorry! Can't find that!")
+})
+
 //connect to mongoDb
 mongoose.connect(
     process.env.DB_CONNECTION,
