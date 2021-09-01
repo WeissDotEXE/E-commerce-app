@@ -12,7 +12,7 @@ router.get('/',async(req,res)=>{
     }
 })
 
-router.post('/',async(req,res)=>{
+router.post('/addproducts',async(req,res)=>{
     console.log(req.body);
     const product=new Products({
         name:req.body.name,
@@ -32,7 +32,7 @@ router.post('/',async(req,res)=>{
 //finding product by id
 router.get('/:productId',async (req,res)=>{
     try{
-        const product=await Products.findById(req.params.postId);
+        const product=await Products.findById(req.params.productId);
         res.json(product);
     }catch(error){
         res.json({message:error})

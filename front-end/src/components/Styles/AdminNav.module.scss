@@ -1,0 +1,13 @@
+@import '../../globals.scss';
+
+.adminNav{
+    background: $backgroundColor;
+    display: flex;
+    flex-direction: column;
+    width: 17%;
+    height: 100vh;
+    color: wheat;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
