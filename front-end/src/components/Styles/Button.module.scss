@@ -1,8 +1,22 @@
-@import '../../globals.scss';
+@import './globals.scss';
 
 .btn{
+    transition: 0.4s;
     border-radius: 10px;
-    width: 100px;
+    width: 150px;
     margin: 0px auto;
     padding: 10px;
+    font-family:$fontFamily;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    background:linear-gradient(180deg, rgba(182, 176, 176, 0.8) -55.41%, rgba(182, 176, 176, 0) 133.78%);
+    color: #B6B0B0;
+}
+.btn:hover{
+    transition: 0.4s;
+    width: 200px;
+    border-radius: 5px;
+    background: white;
+    color: black;
 }

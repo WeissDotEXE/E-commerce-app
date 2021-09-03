@@ -1,0 +1,68 @@
+@import "./globals.scss";
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background: $navbarBackground;
+  border-radius: 0px 0px 15px 15px;
+  padding: 0px 20px;
+  color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  .categories{
+    position: relative;
+    display: inline-block;
+      .dropdown{
+        display: none;
+        position: absolute;
+        background:$navbarBackground;
+        text-align: center;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        width: 200px;
+        left: -30%;
+        border-radius: 0px 0px 20px 20px;
+        #links{
+            transition: 0.3s;
+            text-decoration: none;
+            color: white;
+            width: 100%;
+            border-radius: 0px 0px 20px 20px;
+        }
+      }
+  }
+  .categories:hover{
+      .dropdown{
+          display: flex;
+          flex-direction: column;
+          #links:hover{
+            transition: 0.3s;
+              background: $primaryColor;
+              color: black;
+          }
+      }
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .Btn {
+      position: relative;
+      margin: 0px 20px 0px 20px;
+      i {
+        font-size: 30px;
+      }
+      p {
+        position: absolute;
+        top: -5%;
+        right: 40%;
+        background: $secondaryColor;
+        border-radius: 50px;
+        padding:2px 8px;
+        color: $primaryColor;
+      }
+    }
+    #myAccountTxt{
+        text-decoration: none;
+    }
+  }
+}

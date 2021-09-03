@@ -1,0 +1,16 @@
+@import './globals.scss';
+
+.productCard{
+    background: $cardBackground;
+    margin: auto;
+    width: 55%;
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    margin-top: 40px;
+    img{
+        width: 200px;
+        border-radius: 20px;
+    }
+}

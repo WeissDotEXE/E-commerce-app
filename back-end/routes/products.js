@@ -50,6 +50,7 @@ router.patch("/:productId", async (req, res) => {
           category: req.body.category,
           price: req.body.price,
           description: req.body.description,
+          image:req.body.image
         },
       }
     );

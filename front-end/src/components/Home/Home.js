@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Navbar from '../UI/Navbar';
 
 const Home=()=>{
     return(
-        <div>
-            <h1>Home</h1>
-        </div>
+        
+        <Fragment>
+            <Navbar />
+        </Fragment>
     )
 }
 
