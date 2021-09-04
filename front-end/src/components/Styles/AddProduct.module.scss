@@ -1,4 +1,9 @@
 .addProduct{
     display: grid;
-    grid-template-columns: 0.25fr 1fr;
+    grid-template-columns: 0.2fr 1fr;
+    background: white;
+    .content{
+       padding: 15px; 
+              
+    }
 }

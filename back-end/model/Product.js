@@ -18,6 +18,9 @@ const ProductSchema=mongoose.Schema({
     },
     review:{
         type:Number
+    },
+    isFavourite:{
+        type:String
     }
 })
 

@@ -6,7 +6,9 @@ import AddProduct from './components/Admin/AddProduct';
 import Home from './components/Home/Home';
 import Error from './components/Error/ErrorPage';
 import background from './components/Media/background.jpg';
-import LaptopPage from './components/Laptops/LaptopPage';
+import LaptopPage from './components/ProductPages/LaptopPage';
+import Smartphones from './components/ProductPages/Smartphones';
+import AccesoriesPage from './components/ProductPages/AccesoriesPage';
 function App() {
   return (
     <Router>
@@ -16,6 +18,8 @@ function App() {
         <Route path="/admin" exact component={Admin}/>
         <Route path="/admin/addproduct" exact component={AddProduct} />
         <Route path="/products/laptops" exact component={LaptopPage} />
+        <Route path="/products/smartphones" exact component={Smartphones}/>
+        <Route path="/products/accesories" exact component={AccesoriesPage} />
         <Route component={Error} />
       </Switch>
     </Router>

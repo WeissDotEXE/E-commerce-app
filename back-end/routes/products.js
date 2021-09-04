@@ -20,6 +20,8 @@ router.post("/", async (req, res) => {
     price: req.body.price,
     description: req.body.description,
     review: req.body.review,
+    image: req.body.image,
+    isFavourite: Boolean(req.body.isFavourite),
   });
   try {
     const savedProduct = await product.save();
@@ -50,7 +52,8 @@ router.patch("/:productId", async (req, res) => {
           category: req.body.category,
           price: req.body.price,
           description: req.body.description,
-          image:req.body.image
+          image: req.body.image,
+          isFavourite: req.body.isFavourite,
         },
       }
     );

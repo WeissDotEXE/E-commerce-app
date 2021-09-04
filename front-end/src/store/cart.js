@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 
 const initialCartState={
     totalProducts:0,
-    products:[]
+    showNotification:false,
 }
 
 const cartSlice=createSlice({
@@ -11,7 +11,14 @@ const cartSlice=createSlice({
     reducers:{
         addOneProduct(state,action){
             state.totalProducts++;
+            state.showNotification=true;
             // state.products=state.products.unshift(action.payload);
+        },
+        showNotification(state){
+            state.showNotification=true
+        },
+        hideNotification(state){
+            state.showNotification=false
         },
         removeOneProduct(state){
             state.totalProducts--;

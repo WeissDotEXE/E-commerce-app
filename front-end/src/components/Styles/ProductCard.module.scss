@@ -3,14 +3,26 @@
 .productCard{
     background: $cardBackground;
     margin: auto;
-    width: 55%;
+    width: 50%;
     border-radius: 20px;
     text-align: center;
     padding: 20px;
     color: white;
-    margin-top: 40px;
+    margin-top: 10px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     img{
         width: 200px;
         border-radius: 20px;
+        object-fit: cover;
+    }
+    i{
+        cursor: pointer;
+        font-size: 35px;
+        margin: 15px;
     }
 }

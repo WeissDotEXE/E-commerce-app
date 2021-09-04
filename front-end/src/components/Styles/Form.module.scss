@@ -1,0 +1,40 @@
+@import './globals.scss';
+
+form{
+    font-family: $fontFamily;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    h1{
+        text-align: center;
+    }
+    label{
+        font-size: 23px;
+        font-weight: 600;
+    }
+    input{
+        padding: 5px;
+        border-radius: 10px;
+        border: 2px solid $secondaryColor;
+        font-size:18px;
+    }
+    input:focus{
+        outline: none;
+    }
+    textarea{
+        height: 100px;
+        border: 2px solid $secondaryColor;
+        border-radius: 10px;
+        font-size: 18px;
+        padding: 5px;
+    }
+    textarea{
+        outline: none;
+    }
+    #submitBtn{
+    background:black;
+    color: black;
+    }
+
+}

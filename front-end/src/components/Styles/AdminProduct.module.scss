@@ -1,0 +1,29 @@
+@import './globals.scss';
+
+.adminProduct{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    z-index: 20;
+    color: black;
+    width: 90%;
+    margin: 20px auto;
+    padding: 10px;
+    img{
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+    }
+    #deleteBtn{
+        margin: 0;
+        background: red;
+        color:white;
+    }
+    #updateBtn{
+        margin: 0;
+        background: black;
+        color: white;
+    }
+}

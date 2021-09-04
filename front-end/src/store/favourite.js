@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialFavState={
-    totalFav:0
+    totalFav:0,
+    isFavourite:false
 }
 
 const favouriteSlice=createSlice({
@@ -9,10 +10,12 @@ const favouriteSlice=createSlice({
     initialState:initialFavState,
     reducers:{
         addProduct(state){
-            state.totalFav++
+            state.totalFav++;
+            state.isFavourite=true
         },
         removeProduct(state){
-            state.totalFav--
+            state.totalFav--;
+            state.isFavourite=false
         }
     }
 })
