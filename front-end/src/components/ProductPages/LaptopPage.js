@@ -7,10 +7,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart";
 
 //import animation library
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
+//components import
 import ProductCard from "../UI/ProductCard";
 import Notification from "../UI/Notification";
+import Loading from "../UI/Loading";
 const LaptopPage = () => {
   // const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +29,11 @@ const LaptopPage = () => {
 
       const data = await response.json();
       console.log(data);
-      setLaptops(data);
+      setLaptops(
+        data.filter((laptop) => {
+          return laptop.category === "laptop";
+        })
+      );
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -40,8 +46,14 @@ const LaptopPage = () => {
 
   return (
     <Fragment>
+      {isLoading && <Loading />}
       <Navbar />
-      <motion.div initial={{y:'-100vh'}} animate={{y:0}} transition={{duration:0.5}} className={styles.productPage}>
+      <motion.div
+        initial={{ y: "-100vh" }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        className={styles.productPage}
+      >
         {laptops.map((laptop) => (
           <ProductCard
             key={laptop._id}
@@ -51,8 +63,9 @@ const LaptopPage = () => {
           />
         ))}
       </motion.div>
-      {showNotification && <Notification message="You have successfully added your product to cart"/>}
-      
+      {showNotification && (
+        <Notification message="You have successfully added your product to cart" />
+      )}
     </Fragment>
   );
 };

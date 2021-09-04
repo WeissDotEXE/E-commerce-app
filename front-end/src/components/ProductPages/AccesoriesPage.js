@@ -1,16 +1,23 @@
-import React, { Fragment, useState,useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import styles from "../Styles/ProductPage.module.scss";
 import Navbar from "../UI/Navbar";
 
 import { useSelector, useDispatch } from "react-redux";
 
+//import animation library
+import { motion } from "framer-motion";
+
+import ProductCard from "../UI/ProductCard";
+import Loading from "../UI/Loading";
+
 const AccesoriesPage = () => {
-  const [laptops, setLaptops] = useState([]);
+  const [accessories, setAccessories] = useState([]);
+  const [isLoading,setIsLoading]=useState(false);
   const showNotification = useSelector((state) => state.cart.showNotification);
 
   const fetchDataHandler = async () => {
     try {
-      //setIsLoading(true);
+      setIsLoading(true);
       const response = await fetch("http://localhost:4000/products/");
       if (!response.ok) {
         throw new Error("Something went wrong!");
@@ -18,7 +25,12 @@ const AccesoriesPage = () => {
 
       const data = await response.json();
       console.log(data);
-      //setIsLoading(false);
+      setAccessories(
+        data.filter(accesory => {
+          return accesory.category === "accessory";
+        })
+      );
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +42,23 @@ const AccesoriesPage = () => {
 
   return (
     <Fragment>
+      {isLoading && <Loading />}
       <Navbar />
+      <motion.div
+        initial={{ y: "-100vh" }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        className={styles.productPage}
+      >
+        {accessories.map((accessory) => (
+          <ProductCard
+            key={accessory._id}
+            name={accessory.name}
+            price={accessory.price}
+            image={accessory.image}
+          />
+        ))}
+      </motion.div>
     </Fragment>
   );
 };
