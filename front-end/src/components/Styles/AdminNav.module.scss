@@ -1,15 +1,20 @@
-@import '../../globals.scss';
+@import "../../globals.scss";
 
-.adminNav{
-    background: $backgroundColor;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    color: wheat;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    #addProductBtn:hover{
-        width: 100%;
-    }
+.adminNav {
+  background: $backgroundColor;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: wheat;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  #addProductBtn:hover {
+    width: 100%;
+  }
+  #logo {
+    text-decoration: none;
+    color: beige;
+    text-decoration: none;
+  }
 }

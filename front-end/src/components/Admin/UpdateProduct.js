@@ -1,59 +1,63 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import styles from "../Styles/AddProduct.module.scss";
 
-import Button from "../UI/Button";
 import Form from "../UI/Form";
-
+import Button from "../UI/Button";
 import AdminNav from "./AdminNav";
-const AddProduct = (props) => {
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
-  const [imageLink, setImageLink] = useState("");
-  const [postProduct, setPostProduct] = useState({});
 
-  async function addProductHandler(postProduct) {
-    const response = await fetch('http://localhost:4000/products/', {
-      method: 'POST',
-      body: JSON.stringify(postProduct),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    const data = await response.json();
-    console.log(data);
-  }
+import { useSelector, useDispatch } from "react-redux";
 
-  const submitHandler =(e) => {
-    e.preventDefault();
-    setPostProduct({
+const UpdateProduct = (props) => {
+  //state for getting data from redux
+  const [id, setId] = useState(
+      useSelector((state) => state.updateProduct.id)
+      );
+  const [name, setName] = useState(
+    useSelector((state) => state.updateProduct.name)
+  );
+  const [category, setCategory] = useState(
+    useSelector((state) => state.updateProduct.category)
+  );
+  const [price, setPrice] = useState(
+    useSelector((state) => state.updateProduct.price)
+  );
+  const [description, setDescription] = useState(
+    useSelector((state) => state.updateProduct.description)
+  );
+  const [imageLink, setImageLink] = useState(
+    useSelector((state) => state.updateProduct.image)
+  );
+
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    const updatedData = {
       name,
       category,
       price,
       description,
       image: imageLink,
-    });
-    console.log(postProduct);
-    addProductHandler(postProduct);
-    // setName("");
-    // setCategory("");
-    // setPrice("");
-    // setDescription("");
-    // setImageLink("");
-    //setPostProduct({});
-  };
-
-  const changeSelect = (event) => {
-    setCategory(event.target.value);
-    console.log(category);
+    };
+    try {
+      const response = await fetch(`http://localhost:4000/products/${id}`, {
+        method: "PATCH",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedData),
+      });
+      const data = await response.json();
+      console.log("dataaa" + data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <div className={styles.addProduct}>
       <AdminNav />
       <Form onSubmit={submitHandler}>
-        <h1>Add product</h1>
+        <h1>Update {props.productName}</h1>
         <label htmlFor="productName">Product Name</label>
         <input
           id="productName"
@@ -98,4 +102,4 @@ const AddProduct = (props) => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;

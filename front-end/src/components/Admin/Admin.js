@@ -1,14 +1,16 @@
-import React, { Fragment, useState, useEffect,useCallback } from "react";
+import React, { Fragment, useState, useEffect, useCallback } from "react";
 import styles from "../Styles/Admin.module.scss";
 
 import AdminNav from "./AdminNav";
 import AddProduct from "./AddProduct";
 import AdminProduct from "../UI/AdminProduct";
 import ProductCard from "../UI/ProductCard";
+import UpdateProduct from "./UpdateProduct";
 const Admin = () => {
   const [products, setProducts] = useState([]);
+  const [showUpdate,setShowUpdate]=useState(false);
 
-  const fetchDataHandler = useCallback( async () => {
+  const fetchDataHandler = useCallback(async () => {
     try {
       const response = await fetch("http://localhost:4000/products/");
       if (!response.ok) {
@@ -21,21 +23,22 @@ const Admin = () => {
     } catch (error) {
       console.log(error);
     }
-  },[]);
+  }, []);
+
 
   //function for deleting a product
-  const deleteProductHandler=async(id)=>{
-      try{
-        const response=await fetch(`http://localhost:4000/products/${id}`,{
-            method:"DELETE",
-        });
-        const data=await response.json();
-        console.log(data);
-        fetchDataHandler()
-      }catch(error){
-          console.log(error);
-      }
-  }
+  const deleteProductHandler = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:4000/products/${id}`, {
+        method: "DELETE",
+      });
+      const data = await response.json();
+      console.log(data);
+      fetchDataHandler();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     fetchDataHandler();
@@ -45,7 +48,7 @@ const Admin = () => {
     <div className={styles.admin}>
       <AdminNav />
       <div className={styles.content}>
-          {products.length===0 && <p>No Products</p>}
+        {products.length === 0 && <p>No Products</p>}
         {products.map((product) => (
           <AdminProduct
             key={product._id}
@@ -55,6 +58,7 @@ const Admin = () => {
             category={product.category}
             image={product.image}
             deleteProduct={deleteProductHandler}
+            showUpdate={showUpdate}
           />
         ))}
       </div>
