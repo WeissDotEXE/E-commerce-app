@@ -1,0 +1,14 @@
+@import './globals.scss';
+
+.productHover{
+    font-family: $fontFamily;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    width: 100%;
+    img{
+        height: 70px;
+        width: 70px;
+        object-fit: cover;
+    }
+}

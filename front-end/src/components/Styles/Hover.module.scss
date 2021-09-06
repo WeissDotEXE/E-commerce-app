@@ -1,0 +1,22 @@
+@import './globals.scss';
+
+.hover{
+    width: 30%;
+    position: fixed;
+    top: 9%;
+    right: 10%;
+    z-index: 10;
+    background: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    border-radius: 10px;
+    #sendBtn{
+        background: black;
+        color: white;
+        margin-top: 20px;
+    }
+}

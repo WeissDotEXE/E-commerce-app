@@ -2,19 +2,20 @@ import React, { Fragment, useState, useEffect } from "react";
 import styles from "../Styles/ProductPage.module.scss";
 import Navbar from "../UI/Navbar";
 
+//import redux store and dispatch
 import { useSelector, useDispatch } from "react-redux";
 
 //import animation library
 import { motion } from "framer-motion";
 
 import ProductCard from "../UI/ProductCard";
-import Loading from "../UI/Loading";
-import accessoryImage from "../Media/accessory.svg";
 import Notification from "../UI/Notification";
+import Loading from "../UI/Loading";
+import phoneImage from "../Media/smartphone.svg";
 
-const AccesoriesPage = () => {
-  const [accessories, setAccessories] = useState([]);
+const Smartphones = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [smartphones, setSmartphones] = useState([]);
   const showNotification = useSelector((state) => state.cart.showNotification);
 
   const fetchDataHandler = async () => {
@@ -27,9 +28,9 @@ const AccesoriesPage = () => {
 
       const data = await response.json();
       console.log(data);
-      setAccessories(
-        data.filter((accesory) => {
-          return accesory.category === "accessory";
+      setSmartphones(
+        data.filter((smartphone) => {
+          return smartphone.category === "smartphone";
         })
       );
       setIsLoading(false);
@@ -48,20 +49,18 @@ const AccesoriesPage = () => {
       <Navbar />
       <div className={styles.banner}>
         <motion.h1
-          initial={{ y: "-30vh",opacity:0 }}
-          animate={{ y: 0 ,opacity:1}}
+          initial={{ y: "-30vh", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className={styles.productPage}
         >
-          Find the best accessory for you
+          Find the best phone for you
         </motion.h1>
         <motion.img
-          initial={{ y: "30vh",opacity:0 }}
-          animate={{ y: 0,opacity:1 }}
-          transition={{ duration: 1 }}
-          className={styles.productPage}
+          initial={{ y: "30vh", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration:1 }}
           id={styles.bannerImage}
-          src={accessoryImage}
+          src={phoneImage}
         />
       </div>
       <div class="custom-shape-divider-top-1630910613">
@@ -88,12 +87,12 @@ const AccesoriesPage = () => {
         </svg>
       </div>
       <div className={styles.productPage}>
-        {accessories.map((accessory) => (
+        {smartphones.map((smartphone) => (
           <ProductCard
-            key={accessory._id}
-            name={accessory.name}
-            price={accessory.price}
-            image={accessory.image}
+            key={smartphone._id}
+            name={smartphone.name}
+            price={smartphone.price}
+            image={smartphone.image}
           />
         ))}
       </div>
@@ -104,4 +103,4 @@ const AccesoriesPage = () => {
   );
 };
 
-export default AccesoriesPage;
+export default Smartphones;
