@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className={styles.logo}>
-        <h1>E-commerce</h1>
+        <Link id={styles.logo} to="/"><h1>E-commerce</h1></Link>
       </div>
       <div className={styles.categories}>
         <h1>Categories</h1>

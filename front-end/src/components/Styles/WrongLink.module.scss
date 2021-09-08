@@ -1,0 +1,15 @@
+@import './globals.scss';
+
+.wrongLink{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 50%;
+    }
+    #redirectBtn{
+        width: 100%;
+    }
+}

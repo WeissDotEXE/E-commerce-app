@@ -1,0 +1,31 @@
+@import "./globals.scss";
+
+.cartProduct {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  p {
+    margin: 10px 20px;
+    color: $primaryColor;
+    font-weight: 500;
+  }
+  img {
+    height: 90px;
+    width: 90px;
+    border-radius: 20px;
+  }
+  margin-top: 20px;
+  border-radius: 20px;
+  background: white;
+  .header {
+    font-weight: 700;
+    color: $secondaryColor;
+  }
+  .buttons {
+    #quantityBtn {
+      width: 50px;
+    }
+  }
+}

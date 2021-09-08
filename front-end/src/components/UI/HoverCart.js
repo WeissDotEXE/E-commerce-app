@@ -8,6 +8,7 @@ import Button from "./Button";
 import ProductHover from "./ProductHover";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import NoProducts from "../Error/NoProducts";
 
 const HoverCart = (props) => {
   const [products, setProducts] = useState(
@@ -29,6 +30,7 @@ const HoverCart = (props) => {
             price={product.price}
           />
         ))}
+        {products.length===0 && <NoProducts/>}
         <h1>Total: {totalPrice}</h1>
         <Link to="/cart">
           <Button id={styles.sendBtn}>Send Order</Button>

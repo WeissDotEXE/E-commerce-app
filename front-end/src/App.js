@@ -4,12 +4,13 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import Admin from './components/Admin/Admin';
 import AddProduct from './components/Admin/AddProduct';
 import Home from './components/Home/Home';
-import Error from './components/Error/ErrorPage';
+import WrongLink from './components/Error/WrongLink';
 import background from './components/Media/background.jpg';
 import LaptopPage from './components/ProductPages/LaptopPage';
 import SmartphonesPage from './components/ProductPages/SmartphonesPage';
 import AccesoriesPage from './components/ProductPages/AccesoriesPage';
 import UpdateProduct from './components/Admin/UpdateProduct';
+import Cart from './components/Cart/Cart';
 function App() {
   return (
     <Router>
@@ -21,7 +22,8 @@ function App() {
         <Route path="/products/laptops" exact component={LaptopPage} />
         <Route path="/products/smartphones" exact component={SmartphonesPage}/>
         <Route path="/products/accesories" exact component={AccesoriesPage} />
-        <Route component={Error} />
+        <Route path="/cart" exact component={Cart} />
+        <Route component={WrongLink} />
       </Switch>
     </Router>
   );

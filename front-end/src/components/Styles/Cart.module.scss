@@ -1,0 +1,13 @@
+@import './globals.scss';
+
+.cart{
+    background: $cardBackground;
+    padding-top: 7%;
+    padding-bottom: 3%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}

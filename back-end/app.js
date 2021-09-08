@@ -19,13 +19,15 @@ app.get('/',(req,res)=>{
 //import routes
 const adminRoute=require('./routes/admin');
 const productsRoute=require('./routes/products');
+const transactionRoute=require('./routes/transaction');
 
 app.use('/products',productsRoute);
 app.use('/admin',adminRoute);
+app.use('/transactions',transactionRoute);
 
 //handler for error 404
 app.use((req,res,next)=>{
-    res.status(404).send("Sorry! Can't find that!")
+    res.status(404).send("no route")
 })
 
 //connect to mongoDb

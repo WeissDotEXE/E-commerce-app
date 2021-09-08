@@ -68,7 +68,7 @@ router.patch("/:productId", async (req, res) => {
 router.delete("/:productId", async (req, res) => {
   try {
     const removedProduct = await Products.remove({ _id: req.params.productId });
-    res.json(removedProject);
+    res.json(removedProduct);
   } catch (error) {
     res.json({ message: "delete error" });
   }
