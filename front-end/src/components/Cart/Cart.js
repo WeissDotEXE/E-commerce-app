@@ -11,6 +11,7 @@ const Cart = () => {
     useSelector((state) => state.cart.products)
   );
   const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const totalProducts=useSelector((state)=>state.cart.totalProducts);
 
   useEffect(()=>{
       console.log(products);
@@ -21,7 +22,7 @@ const Cart = () => {
       <Navbar />
       
       <div className={styles.cart}>
-      <h1>Your cart</h1>
+      <h1>Your cart: {totalProducts} products</h1>
       {products.length===0 && <NoProducts/>}
       {products.map((product) => (
           <CartProduct

@@ -17,14 +17,16 @@ const cartSlice=createSlice({
             state.products.unshift(action.payload);
             state.totalPrice=state.totalPrice+action.payload.price
         },
+        removeOneProduct(state,action){
+            state.totalProducts--;
+            state.showNotification=true;
+            state.totalPrice=state.totalPrice-action.payload.price
+        },
         showNotification(state){
             state.showNotification=true
         },
         hideNotification(state){
             state.showNotification=false
-        },
-        removeOneProduct(state){
-            state.totalProducts--;
         },
         addMultipleProducts(state,action){
             state.totalProducts=state.totalProducts+action.payload
@@ -33,6 +35,8 @@ const cartSlice=createSlice({
             state.totalProducts=state.totalProducts-action.payload;
         },
         removeAllItems(state){
+            state.totalProducts=0;
+            state.products=[]
             state.totalProducts=0
         }
     }
