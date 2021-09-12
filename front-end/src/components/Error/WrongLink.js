@@ -9,7 +9,7 @@ const WrongLink=()=>{
     return(
         <div className={styles.wrongLink}>
             <img src={wrongPage}/>
-            <h1>Sorry! We couldn't find that!</h1>
+            <h1>Sorry! We couldn't find that!!</h1>
             <Link to="/"><Button id={styles.redirectBtn}>Go to main page</Button></Link>
         </div>
     )

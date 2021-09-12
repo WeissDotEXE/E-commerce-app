@@ -91,6 +91,7 @@ const AccesoriesPage = () => {
         {accessories.map((accessory) => (
           <ProductCard
             key={accessory._id}
+            id={accessory._id}
             name={accessory.name}
             price={accessory.price}
             image={accessory.image}

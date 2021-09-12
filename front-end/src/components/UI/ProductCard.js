@@ -15,9 +15,11 @@ const ProductCard = (props) => {
   const addItemCart = () => {
     console.log("a mers");
     const addProductCart={
+      
       name:props.name,
       price:props.price,
-      image:props.image
+      image:props.image,
+      id:props.id,
     }
     dispatch(cartActions.addOneProduct(addProductCart))
     

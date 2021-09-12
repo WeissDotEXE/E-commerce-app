@@ -90,6 +90,7 @@ const Smartphones = () => {
         {smartphones.map((smartphone) => (
           <ProductCard
             key={smartphone._id}
+            id={smartphone._id}
             name={smartphone.name}
             price={smartphone.price}
             image={smartphone.image}

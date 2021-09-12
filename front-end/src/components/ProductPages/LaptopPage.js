@@ -91,6 +91,7 @@ const LaptopPage = () => {
         {laptops.map((laptop) => (
           <ProductCard
             key={laptop._id}
+            id={laptop._id}
             name={laptop.name}
             price={laptop.price}
             image={laptop.image}

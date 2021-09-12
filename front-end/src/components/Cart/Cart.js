@@ -14,8 +14,8 @@ const Cart = () => {
   const totalProducts=useSelector((state)=>state.cart.totalProducts);
 
   useEffect(()=>{
-      console.log(products);
-  },[])
+    setProducts(products)
+  },[products])
 
   return (
     <Fragment>
@@ -26,9 +26,11 @@ const Cart = () => {
       {products.length===0 && <NoProducts/>}
       {products.map((product) => (
           <CartProduct
+          id={product.id}
             name={product.name}
             image={product.image}
             price={product.price}
+            
           />
         ))}
         <h1>Total:{totalPrice} $</h1>

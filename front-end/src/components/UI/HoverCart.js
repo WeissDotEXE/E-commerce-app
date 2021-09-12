@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import styles from "../Styles/Hover.module.scss";
 
 //import animation library
@@ -15,6 +15,11 @@ const HoverCart = (props) => {
     useSelector((state) => state.cart.products)
   );
   const totalPrice=useSelector(state=>state.cart.totalPrice);
+
+    useEffect(()=>{
+      setProducts(products)
+    },[products])
+
   return (
     <Fragment>
       <motion.div
