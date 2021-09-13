@@ -11,26 +11,27 @@ const Cart = () => {
     useSelector((state) => state.cart.products)
   );
   const totalPrice = useSelector((state) => state.cart.totalPrice);
-  const totalProducts=useSelector((state)=>state.cart.totalProducts);
+  const totalProducts = useSelector((state) => state.cart.totalProducts);
 
-  useEffect(()=>{
-    setProducts(products)
-  },[products])
+  // useEffect(() => {
+  //   setProducts(products);
+  // }, [products]);
 
   return (
     <Fragment>
       <Navbar />
-      
+
       <div className={styles.cart}>
-      <h1>Your cart: {totalProducts} products</h1>
-      {products.length===0 && <NoProducts/>}
-      {products.map((product) => (
+        <h1>Your cart: {totalProducts} products</h1>
+        {products.length === 0 && <NoProducts />}
+        {products.map((product) => (
           <CartProduct
-          id={product.id}
+            key={product.id}
+            id={product.id}
             name={product.name}
             image={product.image}
             price={product.price}
-            
+            quantity={product.quantity}
           />
         ))}
         <h1>Total:{totalPrice} $</h1>

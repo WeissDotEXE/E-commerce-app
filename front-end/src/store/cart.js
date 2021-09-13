@@ -5,45 +5,52 @@ const initialCartState = {
   showNotification: false,
   products: [],
   totalPrice: 0,
-  productQuantity:0,
+  productQuantity: 0,
 };
 
 const cartSlice = createSlice({
   name: "cart",
   initialState: initialCartState,
   reducers: {
-    addOneProduct(state, action) {
+    addItemToCart(state, action) {
+      const newProduct = action.payload;
+      const existingProduct = state.products.find(
+        (item) => item.id === newProduct.id
+      );
       state.totalProducts++;
-      state.showNotification = true;
-      state.products.unshift(action.payload);
-      state.totalPrice = state.totalPrice + action.payload.price;
+      state.totalPrice=state.totalPrice+newProduct.price;
+      if (!existingProduct) {
+        state.products.push({
+          id: newProduct.id,
+          name: newProduct.name,
+          image: newProduct.image,
+          quantity: 1,
+          price: newProduct.price,
+        });
+      } else {
+        existingProduct.quantity++;
+        existingProduct.totalPrice =
+          existingProduct.totalPrice + newProduct.price;
+      }
     },
-    removeOneProduct(state, action) {
+    removeItemFromCart(state, action) {
+      const id = action.payload;
+      const existingProduct = state.products.find((product) => product.id === id);
+      state.totalQuantity--;
       state.totalProducts--;
-      state.showNotification = true;
-      state.totalPrice = state.totalPrice - action.payload.price;
-    },
-    deleteProduct(state, action) {
-      state.products = state.products.filter(product =>product.id !== action.payload.id);
-      state.totalPrice=state.totalPrice-action.payload;
-      state.totalProducts=state.totalProducts-action.payload.productQuantity;
+      state.totalPrice=state.totalPrice-existingProduct.price;
+      if (existingProduct.quantity === 1) {
+        state.products = state.products.filter((product) => product.id !== id);
+      } else {
+        existingProduct.quantity--;
+        existingProduct.totalPrice = existingProduct.totalPrice - existingProduct.price;
+      }
     },
     showNotification(state) {
       state.showNotification = true;
     },
     hideNotification(state) {
       state.showNotification = false;
-    },
-    addMultipleProducts(state, action) {
-      state.totalProducts = state.totalProducts + action.payload;
-    },
-    // removeSimilarItems(state, action) {
-    //   state.totalProducts = state.totalProducts - action.payload;
-    // },
-    removeAllItems(state) {
-      state.totalProducts = 0;
-      state.products = [];
-      state.totalProducts = 0;
     },
   },
 });

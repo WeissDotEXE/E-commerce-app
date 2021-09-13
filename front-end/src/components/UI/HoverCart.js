@@ -16,10 +16,6 @@ const HoverCart = (props) => {
   );
   const totalPrice=useSelector(state=>state.cart.totalPrice);
 
-    useEffect(()=>{
-      setProducts(products)
-    },[products])
-
   return (
     <Fragment>
       <motion.div
@@ -33,10 +29,11 @@ const HoverCart = (props) => {
             name={product.name}
             image={product.image}
             price={product.price}
+            quantity={product.quantity}
           />
         ))}
         {products.length===0 && <NoProducts/>}
-        <h1>Total: {totalPrice}</h1>
+        <h1>Total: {totalPrice} $</h1>
         <Link to="/cart">
           <Button id={styles.sendBtn}>Send Order</Button>
         </Link>

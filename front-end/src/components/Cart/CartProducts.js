@@ -3,28 +3,20 @@ import styles from "../Styles/CartProduct.module.scss";
 import Button from "../UI/Button";
 
 import { useDispatch,useSelector } from "react-redux";
-import cart, { cartActions } from "../../store/cart";
+import { cartActions } from "../../store/cart";
 
 const CartProduct = (props) => {
   const dispatch = useDispatch();
-  const [productQuantity,setProductQuantity]=useState(1);
-
+ 
   //action for products buttons(add,remove)
   const addOneProduct=()=>{
-    dispatch(cartActions.addOneProduct(props))
-    setProductQuantity(productQuantity+1)
+    dispatch(cartActions.addItemToCart(props))
     console.log(props);
   }
   const removeOneProduct=()=>{
-    dispatch(cartActions.removeOneProduct(props));
-    setProductQuantity(productQuantity-1)
-  }
-  const deleteProduct=()=>{
     console.log(props);
-    dispatch(cartActions.deleteProduct(props,productQuantity))
+    dispatch(cartActions.removeItemFromCart(props.id));
   }
-
- 
 
   return (
     <div className={styles.cartProduct}>
@@ -37,13 +29,11 @@ const CartProduct = (props) => {
         <p className={styles.header}>Price</p>
         <p>{props.price} $</p>
       </div>
+      
       <div className={styles.buttons}>
-      <p>{productQuantity}</p>
+      <p>{props.quantity}</p>
         <Button id={styles.quantityBtn} onClick={addOneProduct}>+</Button>
         <Button id={styles.quantityBtn} onClick={removeOneProduct}>-</Button>
-        <Button id={styles.quantityBtn} onClick={deleteProduct}>
-          <i class="far fa-trash-alt"></i>
-        </Button>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ const ProductHover=(props)=>{
         <div className={styles.productHover}>
             <img src={props.image}/>
             <p>{props.name}</p>
+            <p>X {props.quantity}</p>
             <p>{props.price}$</p>
         </div>
     )

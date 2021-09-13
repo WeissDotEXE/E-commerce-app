@@ -15,13 +15,12 @@ const ProductCard = (props) => {
   const addItemCart = () => {
     console.log("a mers");
     const addProductCart={
-      
       name:props.name,
       price:props.price,
       image:props.image,
       id:props.id,
     }
-    dispatch(cartActions.addOneProduct(addProductCart))
+    dispatch(cartActions.addItemToCart(addProductCart))
     
     //function for showing notification when product id added to cart
     dispatch(cartActions.showNotification());
