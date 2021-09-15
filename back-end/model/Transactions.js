@@ -1,7 +1,10 @@
 const mongoose=require('mongoose');
 
 const TransactionSchema=mongoose.Schema({
-    name:{
+    firstName:{
+        type:String
+    },
+    lastName:{
         type:String
     },
     address:{
@@ -9,6 +12,12 @@ const TransactionSchema=mongoose.Schema({
     },
     payment:{
         type:String
+    },
+    products:{
+        type:Object
+    },
+    totalPrice:{
+        
     },
     status:{
         type:String,

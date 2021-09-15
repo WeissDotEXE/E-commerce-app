@@ -16,16 +16,19 @@ router.get("/", async (req, res) => {
 //route for creating a transaction
 router.post("/", async (req, res) => {
   const transaction = new Transactions({
-    name: req.body.name,
+    firstName: req.body.firstName,
+    lastName:req.body.lastName,
+    products:req.body.products,
     adress: req.body.adress,
     payment: req.body.payment,
+    totalPrice:req.body.totalPrice
   });
 
   try {
     const savedTransaction = await transaction.save();
     res.json(savedTransaction);
   } catch (error) {
-    res.json({ message: "something went wrong with POST transaction" });
+    res.json({ message: error });
   }
 });
 

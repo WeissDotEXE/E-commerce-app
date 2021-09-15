@@ -11,6 +11,7 @@ import SmartphonesPage from './components/ProductPages/SmartphonesPage';
 import AccesoriesPage from './components/ProductPages/AccesoriesPage';
 import UpdateProduct from './components/Admin/UpdateProduct';
 import Cart from './components/Cart/Cart';
+import SendOrder from './components/Cart/SendOrder';
 function App() {
   return (
     <Router>
@@ -23,6 +24,7 @@ function App() {
         <Route path="/products/smartphones" exact component={SmartphonesPage}/>
         <Route path="/products/accesories" exact component={AccesoriesPage} />
         <Route path="/cart" exact component={Cart} />
+        <Route path="/sendorder" exact component={SendOrder} />
         <Route component={WrongLink} />
       </Switch>
     </Router>

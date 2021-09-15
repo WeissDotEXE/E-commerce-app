@@ -1,0 +1,38 @@
+@import './globals.scss';
+
+body{
+    background: $navbarBackground;
+    color: white;
+    max-width: 100%;
+}
+.name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.payment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input{
+        margin:0px 0px 0px 35px;
+    }
+}
+label{
+    text-align: center;
+    margin: 10px;
+}
+#headerTxt{
+    text-align: center;
+    background: black;
+    margin-top: 0;
+}
+#backBtn{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+#submitBtn{
+    width: 100%;
+}

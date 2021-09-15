@@ -6,6 +6,7 @@ import Navbar from "../UI/Navbar";
 import CartProduct from "./CartProducts";
 import Button from "../UI/Button";
 import NoProducts from "../Error/NoProducts";
+import { Link } from "react-router-dom";
 const Cart = () => {
   const [products, setProducts] = useState(
     useSelector((state) => state.cart.products)
@@ -35,7 +36,7 @@ const Cart = () => {
           />
         ))}
         <h1>Total:{totalPrice} $</h1>
-        <Button>Send Order</Button>
+        <Link to='/sendorder'><Button>Send Order</Button></Link>
       </div>
     </Fragment>
   );
