@@ -103,13 +103,13 @@ const SendOrder = () => {
           </label>
         </div>
 
-        <div className={styles.prodcuts}>
+        <div className={styles.products}>
           {products.map((product) => (
             <ProductHover name={product.name} price={product.price} quantity={product.quantity} image={product.image}/>
           ))}
           <h1>Total price: {totalPrice}$</h1>
         </div>
-       <Link to="/"><Button id={styles.submitBtn} type='submit'>Send order for real now!</Button></Link>
+       <Button id={styles.submitBtn} type='submit'>Send order for real now!</Button>
       </Form>
     </Fragment>
   );

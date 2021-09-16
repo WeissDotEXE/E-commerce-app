@@ -1,0 +1,11 @@
+@import './globals.scss';
+
+.orderItem{
+    width: 93%;
+    padding: 10px;
+    background: white;
+    color: black;
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+}
