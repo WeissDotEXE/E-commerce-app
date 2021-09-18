@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/WeissDotEXE/e-commerce-app/issues"
   },
-  "homepage": "https://github.com/WeissDotEXE/e-commerce-app#readme"
+  "homepage": "https://github.com/WeissDotEXE/e-commerce-app#readme",
+  "dependencies": {
+    "@types/expo": "^33.0.1",
+    "@types/react": "^17.0.21",
+    "@types/react-native": "^0.65.0"
+  }
 }
