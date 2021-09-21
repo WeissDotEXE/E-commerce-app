@@ -1,10 +1,12 @@
 class Product {
+    key:string;
     id:string;
     name:string;
     price:number;
     image:string;
 
-    constructor(productId:string,productName:string,productPrice:number,productImage:string){
+    constructor(productKey:string,productId:string,productName:string,productPrice:number,productImage:string){
+        this.key=productKey;
         this.id=productId;
         this.name=productName;
         this.price=productPrice;

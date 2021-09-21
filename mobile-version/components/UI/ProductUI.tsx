@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Image, Button } from "react-native";
+import {StyleSheet, Text, Image, Button } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 import Product from "../../models/productItem";
-
 const ProductUI: React.FC<Product> = (props) => {
   return (
     <LinearGradient
@@ -13,7 +12,7 @@ const ProductUI: React.FC<Product> = (props) => {
       <Image source={{ uri: props.image }} style={styles.productImage} />
       <Text style={styles.baseText}>{props.name}</Text>
       <Text style={styles.baseText}>{props.price}</Text>
-      <Button style={styles.addCartBtn} title="add to cart"></Button>
+      {/* <Button style={styles.addCartBtn} title="add to cart"></Button> */}
     </LinearGradient>
   );
 };
@@ -43,3 +42,4 @@ const styles = StyleSheet.create({
 });
 
 export default ProductUI;
+

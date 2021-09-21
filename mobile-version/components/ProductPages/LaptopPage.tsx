@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Image, Button } from "react-native";
+import { View, StyleSheet, Text, Image, FlatList } from "react-native";
 import ProductUI from "../UI/ProductUI";
+import Navigation from "../UI/Navigation";
+import { ScrollView } from "react-native-gesture-handler";
 
-const LaptopPage: React.FC = () => {
-
-    interface Laptop{
-        id:string;
-        name:string;
-        price:number;
-        image:number;
-    }[]
-
-  const [laptops, setLaptops] = useState<Laptop | undefined>();
+const LaptopPage = () => {
+  const [laptops, setLaptops] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchDataHandler = async () => {
@@ -23,7 +17,7 @@ const LaptopPage: React.FC = () => {
       }
 
       const data = await response.json();
-      console.log(data);
+      setLaptops(data);
       setLaptops(
         data.filter((laptop: any) => {
           return laptop.category === "laptop";
@@ -39,12 +33,20 @@ const LaptopPage: React.FC = () => {
     fetchDataHandler();
   }, []);
 
-  return(
-      <View>
-          <Text>Laptop Page</Text>
-      </View>
-  )
-
+  return (
+    <View style={styles.laptopPage}>
+      <ScrollView>
+        {laptops.map((laptop:any)=><ProductUI key={laptop._id} id={laptop._id} name={laptop.name} price={laptop.price} image={laptop.image}/>)}
+      </ScrollView>
+      <Navigation />
+    </View>
+  );
 };
+
+const styles = StyleSheet.create({
+  laptopPage: {
+    flex: 1,
+  },
+});
 
 export default LaptopPage;
