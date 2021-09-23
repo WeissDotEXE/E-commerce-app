@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Image, FlatList } from "react-native";
+import { View, StyleSheet, Text, Image, FlatList, Button } from "react-native";
 import ProductUI from "../UI/ProductUI";
 import Navigation from "../UI/Navigation";
 import { ScrollView } from "react-native-gesture-handler";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../store/cart";
 
 const LaptopPage = () => {
   const [laptops, setLaptops] = useState();
   const [isLoading, setIsLoading] = useState(false);
-
+  const dispatch = useDispatch();
+  const reduxTest = useSelector((state) => state.cart.totalProducts);
   const fetchDataHandler = async () => {
     try {
       setIsLoading(true);
@@ -17,9 +20,9 @@ const LaptopPage = () => {
       }
 
       const data = await response.json();
-      setLaptops(data);
+      console.log(data);
       setLaptops(
-        data.filter((laptop: any) => {
+        data.filter((laptop) => {
           return laptop.category === "laptop";
         })
       );
@@ -29,14 +32,16 @@ const LaptopPage = () => {
     }
   };
 
+
   useEffect(() => {
     fetchDataHandler();
-  }, []);
+  }, [fetchDataHandler]);
 
   return (
     <View style={styles.laptopPage}>
       <ScrollView>
-        {laptops.map((laptop:any)=><ProductUI key={laptop._id} id={laptop._id} name={laptop.name} price={laptop.price} image={laptop.image}/>)}
+        <Text>{reduxTest}</Text>
+        <Button title="press" onPress={()=>fetchDataHandler()}/>
       </ScrollView>
       <Navigation />
     </View>
