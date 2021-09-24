@@ -1,9 +1,10 @@
+@import './globals.scss';
+
 .addProduct{
     display: grid;
     grid-template-columns: 0.2fr 1fr;
-    background: white;
+    background: $navbarBackground;
     .content{
        padding: 15px; 
-              
     }
 }

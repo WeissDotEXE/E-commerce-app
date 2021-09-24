@@ -32,6 +32,15 @@ form{
     textarea{
         outline: none;
     }
+    select{
+        padding: 5px;
+        font-size: 20px;
+        border-radius: 10px;
+        border: 2px solid $secondaryColor;
+    }
+    select:focus{
+        outline: none;
+    }
     #submitBtn{
     background:black;
     color: black;

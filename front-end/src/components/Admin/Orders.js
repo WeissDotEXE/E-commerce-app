@@ -37,6 +37,7 @@ const Orders = () => {
             products={order.products}
             status={order.status}
             adress={order.adress}
+            total={order.totalPrice[0]}
           />
         ))}
         {orders.totalPrice}

@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../Styles/OrderItem.module.scss";
 
 const OrderItem = (props) => {
-  const { firstName, lastName, products, payment, status } = props;
+  const { firstName, lastName, products, payment, status,total } = props;
+
+  useEffect(()=>{
+    console.log(props);
+  },[])
+
   return (
     <div className={styles.orderItem}>
       <div className={styles.name}>
@@ -16,6 +21,7 @@ const OrderItem = (props) => {
           <p>{payment}</p>
           {payment==='card'? <i class="fas fa-credit-card"></i> : <i class="fas fa-money-bill-wave-alt"></i>}
       </div>
+      <div className={styles.orderedProducts}>
       {products.map((product) => (
           <div>
               <p>{product.name}</p>
@@ -23,7 +29,10 @@ const OrderItem = (props) => {
               <p>{product.price} $</p>
           </div>
       ))}
+      
+      </div>
       <div className={styles.status}>
+      <p id={styles.totalTxt}>Total price: {total} $</p>
           <h5>Status:</h5>
           <p>{status}</p>
       </div>

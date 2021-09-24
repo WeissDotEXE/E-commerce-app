@@ -9,7 +9,7 @@ const AdminNav=()=>{
         <div className={styles.adminNav}>
             <Link to="/admin"><h1 id={styles.logo}>E-commerce Admin</h1></Link>
             <Link to="/admin/add-product"><Button id={styles.addProductBtn}>Add Product</Button></Link>
-            <Link to="/orders">Orders</Link>
+            <Link to="/orders"><Button>Orders</Button></Link>
         </div>
     )
 }

@@ -36,12 +36,6 @@ const AddProduct = (props) => {
     });
     console.log(postProduct);
     addProductHandler(postProduct);
-    // setName("");
-    // setCategory("");
-    // setPrice("");
-    // setDescription("");
-    // setImageLink("");
-    //setPostProduct({});
   };
 
   const changeSelect = (event) => {
