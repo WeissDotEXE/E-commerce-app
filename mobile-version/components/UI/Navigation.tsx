@@ -4,12 +4,12 @@ import { Button, Pressable, StyleSheet, Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
-import { useSelector } from "react-redux";
+import { RootStateOrAny, useSelector } from "react-redux";
 
 const Navigation = () => {
   const navigation: any = useNavigation();
 
-  const totalCart = useSelector((state) => state.cart.totalProducts);
+  const totalCart = useSelector((state:RootStateOrAny) => state.cart.totalProducts);
 
   return (
     <LinearGradient
@@ -30,13 +30,13 @@ const Navigation = () => {
       </Pressable>
       <Pressable
         style={styles.link}
-        onPress={() => navigation.navigate("Laptops")}
+        onPress={() => navigation.navigate("Smartphones")}
       >
         <Feather name="smartphone" size={24} color="white" />
       </Pressable>
       <Pressable
         style={styles.link}
-        onPress={() => navigation.navigate("Laptops")}
+        onPress={() => navigation.navigate("Cart")}
       >
         <AntDesign name="shoppingcart" size={24} color="white" />
         <Text style={styles.cartNumber}>{totalCart}</Text>

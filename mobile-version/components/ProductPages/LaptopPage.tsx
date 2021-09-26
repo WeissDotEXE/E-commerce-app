@@ -3,26 +3,27 @@ import { View, StyleSheet, Text, Image, FlatList, Button } from "react-native";
 import ProductUI from "../UI/ProductUI";
 import Navigation from "../UI/Navigation";
 import { ScrollView } from "react-native-gesture-handler";
-import { useDispatch, useSelector } from "react-redux";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/cart";
 
 const LaptopPage = () => {
   const [laptops, setLaptops] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
-  const reduxTest = useSelector((state) => state.cart.totalProducts);
+  const reduxTest = useSelector((state:RootStateOrAny) => state.cart.totalProducts);
   const fetchDataHandler = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch("http://localhost:4000/products/");
+      const response = await fetch(
+        "http://0ce3-2a02-2f04-c113-2500-f073-47b4-7c8f-5337.ngrok.io/products/"
+      );
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
 
       const data = await response.json();
-      console.log(data);
       setLaptops(
-        data.filter((laptop) => {
+        data.filter((laptop: any) => {
           return laptop.category === "laptop";
         })
       );
@@ -32,16 +33,22 @@ const LaptopPage = () => {
     }
   };
 
-
   useEffect(() => {
     fetchDataHandler();
-  }, [fetchDataHandler]);
+  }, []);
 
   return (
     <View style={styles.laptopPage}>
       <ScrollView>
-        <Text>{reduxTest}</Text>
-        <Button title="press" onPress={()=>fetchDataHandler()}/>
+        {laptops?.map((laptop: any) => (
+          <ProductUI
+            key={laptop._id}
+            id={laptop._id}
+            name={laptop.name}
+            price={laptop.price}
+            image={laptop.image}
+          />
+        ))}
       </ScrollView>
       <Navigation />
     </View>
