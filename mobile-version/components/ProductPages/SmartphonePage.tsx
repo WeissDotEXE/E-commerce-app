@@ -7,7 +7,7 @@ import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/cart";
 
 const smartphonePage = () => {
-  const [smartphones, setsmartphones] = useState();
+  const [smartphones, setSmartphones] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const reduxTest = useSelector((state:RootStateOrAny) => state.cart.totalProducts);
@@ -15,16 +15,16 @@ const smartphonePage = () => {
     try {
       setIsLoading(true);
       const response = await fetch(
-        "http://0ce3-2a02-2f04-c113-2500-f073-47b4-7c8f-5337.ngrok.io/products/"
+        "http://fb6f-2a02-2f04-c218-c500-5ce9-d9ed-3df-666a.ngrok.io/products/"
       );
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
 
       const data = await response.json();
-      setsmartphones(
-        data.filter((smartphone: any) => {
-          return smartphone.category === "smartphone";
+      setSmartphones(
+        data.filter((product: any) => {
+          return product.category === "smartphone";
         })
       );
       setIsLoading(false);

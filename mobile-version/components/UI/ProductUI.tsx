@@ -9,10 +9,11 @@ import { cartActions } from "../../store/cart";
 
 const ProductUI: React.FC<Product> = (props) => {
   const dispatch = useDispatch();
-  const { name, price, image } = props;
+  const { name, price, image,id } = props;
   const [product, setProduct] = useState({});
   const addToCartHandler = (): void => {
     setProduct({
+      id,
       name,
       price,
       image,

@@ -6,6 +6,9 @@ import { LinearGradient } from "expo-linear-gradient";
 import { RootStateOrAny, useSelector } from "react-redux";
 import Navigation from "../UI/Navigation";
 
+
+
+
 const CartPage: React.FC = () => {
   const [productList, setProductList] = useState(
     useSelector((state: RootStateOrAny) => state.cart.cartProducts)
