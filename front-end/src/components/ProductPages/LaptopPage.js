@@ -28,7 +28,6 @@ const LaptopPage = () => {
       }
 
       const data = await response.json();
-      console.log(data);
       setLaptops(
         data.filter((laptop) => {
           return laptop.category === "laptop";

@@ -5,8 +5,10 @@ import Button from "./Button";
 import { useDispatch,useSelector } from "react-redux";
 import { cartActions } from "../../store/cart";
 import { favActions } from "../../store/favourite";
+import { Link } from "react-router-dom";
 
 const ProductCard = (props) => {
+  const {name,price,image,id}=props;
   const dispatch = useDispatch();
   const isFavourite=useSelector(state=>state.favourite.isFavourite)
 
@@ -15,10 +17,10 @@ const ProductCard = (props) => {
   const addItemCart = () => {
     console.log("a mers");
     const addProductCart={
-      name:props.name,
-      price:props.price,
-      image:props.image,
-      id:props.id,
+      name,
+      price,
+      image,
+      id,
     }
     dispatch(cartActions.addItemToCart(addProductCart))
     
@@ -50,13 +52,14 @@ const ProductCard = (props) => {
   }
 
   return (
-    <div className={styles.productCard}>
+    <Link id={styles.link} to={`/products/${props.id}`} ><div className={styles.productCard}>
       <img src={props.image} />
       <h1>{props.name}</h1>
       <h1>{props.price} $</h1>
       {isFavourite ? <i onClick={addItemFav} class="fas fa-heart"></i>:<i class="far fa-heart"></i>}
       <Button onClick={addItemCart}>Add to cart</Button>
     </div>
+    </Link>
   );
 };
 

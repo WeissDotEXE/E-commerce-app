@@ -13,6 +13,7 @@ import UpdateProduct from './components/Admin/UpdateProduct';
 import Cart from './components/Cart/Cart';
 import SendOrder from './components/Cart/SendOrder';
 import Orders from './components/Admin/Orders';
+import ProductDetail from './components/ProductPages/ProductDetail';
 function App() {
   return (
     <Router>
@@ -24,6 +25,7 @@ function App() {
         <Route path="/products/laptops" exact component={LaptopPage} />
         <Route path="/products/smartphones" exact component={SmartphonesPage}/>
         <Route path="/products/accesories" exact component={AccesoriesPage} />
+        <Route path="/products/:productId" exact component={ProductDetail}/>
         <Route path="/cart" exact component={Cart} />
         <Route path="/sendorder" exact component={SendOrder} />
         <Route path="/orders" exact component={Orders} />

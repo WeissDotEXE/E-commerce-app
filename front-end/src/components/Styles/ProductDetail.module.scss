@@ -1,0 +1,38 @@
+@import './globals.scss';
+// body{
+//     background: white;
+// }
+
+.productDetail{
+    position: relative;
+    color: black;
+    top: 100px;
+    margin: auto;
+    width: 1200px;
+    .header{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .leftSide{
+            img{
+                width: 90%;
+                height: 350px;
+                object-fit: contain;
+            }
+        }
+        .rightSide{
+            text-align: center;
+            font-size: 30px;
+            #addCartBtn{
+                width: 55%;
+            }
+            #price{
+                color: White;
+            }
+        }
+    }
+    .description{
+        width: 1000px;
+        margin: auto;
+        color: white;
+    }
+}
