@@ -1,7 +1,7 @@
 @import './globals.scss';
-// body{
-//     background: white;
-// }
+body{
+    background: white;
+}
 
 .productDetail{
     position: relative;
@@ -26,13 +26,13 @@
                 width: 55%;
             }
             #price{
-                color: White;
+                color: $primaryColor;
             }
         }
     }
     .description{
         width: 1000px;
         margin: auto;
-        color: white;
+        color: black;
     }
 }

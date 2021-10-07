@@ -36,7 +36,7 @@ const Cart = () => {
           />
         ))}
         <h1>Total:{totalPrice} $</h1>
-        <Link to='/sendorder'><Button>Send Order</Button></Link>
+        {products.length!==0 && <Link to='/sendorder'><Button>Send Order</Button></Link>}
       </div>
     </Fragment>
   );

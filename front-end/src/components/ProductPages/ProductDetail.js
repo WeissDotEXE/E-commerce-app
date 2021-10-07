@@ -33,7 +33,7 @@ const ProductDetail = () => {
 
   const addItemCart = () => {
       const addProduct={
-        id:product.id,
+        id:product._id,
         name:product.name,
         price:product.price,
         image:product.image,

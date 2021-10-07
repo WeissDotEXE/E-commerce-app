@@ -1,9 +1,7 @@
 @import './globals.scss';
 
-body{
-    background: $navbarBackground;
-    color: white;
-    max-width: 100%;
+#sendOrder{
+    background: blue;
 }
 .name{
     display: flex;
@@ -22,6 +20,7 @@ body{
 label{
     text-align: center;
     margin: 10px;
+    color: black;
 }
 #headerTxt{
     text-align: center;
