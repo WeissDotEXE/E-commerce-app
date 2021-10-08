@@ -1,8 +1,8 @@
 @import './globals.scss';
 
 .adminProduct{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-between;
     align-items: center;
     background: white;
@@ -11,6 +11,8 @@
     width: 90%;
     margin: 20px auto;
     padding: 10px;
+    background: rgb(228, 228, 228);
+    border-radius: 10px;
     img{
         width: 60px;
         height: 60px;
@@ -20,10 +22,12 @@
         margin: 0;
         background: red;
         color:white;
+        width: 50%;
     }
     #updateBtn{
         margin: 0;
         background: black;
         color: white;
+        width: 60%;
     }
 }

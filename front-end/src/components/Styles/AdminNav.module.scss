@@ -1,17 +1,14 @@
 @import "./globals.scss";
 
 .adminNav {
+  position:fixed;
+  background: black;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 100%;
   justify-content: space-around;
-  height: 100vh;
-  color: wheat;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  #addProductBtn:hover {
-    width: 100%;
-  }
+  align-items: center;
+  top: 0;
   #logo {
     text-decoration: none;
     color: beige;
