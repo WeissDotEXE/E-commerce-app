@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
   const totalItems = useSelector((state) => state.cart.totalProducts);
   const totalFav = useSelector((state) => state.favourite.totalFav);
+  const isLoggedIn=useSelector(state=>state.auth.isLoggedIn);
 
   const [showCart, setShowCart] = useState(false);
   const [showFav, setShowFav] = useState(false);
@@ -49,7 +50,7 @@ const Navbar = () => {
           <i class="fas fa-shopping-cart"></i>
         </div>
         <div className={styles.myAccount}>
-          <Link id={styles.myAccountTxt}>
+          <Link id={styles.myAccountTxt} to="/profile">
             <h1>My account</h1>
           </Link>
         </div>

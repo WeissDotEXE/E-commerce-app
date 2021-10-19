@@ -1,0 +1,19 @@
+@import './globals.scss';
+
+.authForm{
+    position: relative;
+    width: 70%;
+    padding:15px;
+    top: 150px;
+    left: 0;
+    margin: auto;
+    border: 3px solid $primaryColor;
+    border-radius: 15px;
+    text-align: center;
+    label{
+        text-align: left;
+    }
+    button{
+        margin-top: 20px;
+    }
+}
