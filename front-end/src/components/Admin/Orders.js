@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import styles from "../Styles/Admin.module.scss";
+import Button from "../UI/Button";
 import AdminNav from "./AdminNav";
 import OrderItem from "./OrderItem";
 
@@ -18,15 +19,22 @@ const Orders = () => {
     }
   };
 
-  useEffect(()=>{
-      fetchDataHandler()
-  },[])
+  useEffect(() => {
+    fetchDataHandler();
+  }, []);
 
   return (
     <div className={styles.admin}>
       <AdminNav />
       <div className={styles.orders}>
-        <h1>Orders</h1>
+        <div className={styles.header}>
+          <h1>Orders</h1>
+          <div className={styles.showOrders}>
+            <h3>Show By Status</h3>
+            <Button>Pending</Button>
+            <Button>Completed</Button>
+          </div>
+        </div>
         {orders.map((order) => (
           <OrderItem
             key={order._id}

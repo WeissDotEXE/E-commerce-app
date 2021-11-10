@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 
 const initialAuthState={
     token:sessionStorage.getItem('token'),
-    isLoggedIn:token===null
+    //isLoggedIn:token===null
 }
 
 const authSlice=createSlice({
