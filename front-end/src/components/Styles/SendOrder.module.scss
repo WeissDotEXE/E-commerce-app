@@ -1,7 +1,18 @@
 @import './globals.scss';
 
 #sendOrder{
-    background: blue;
+    height: 100vh;
+    background: $cardBackground;
+    .orderForm{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        width: 60%;
+        height: 80vh;
+        margin:auto;
+        border-radius: 20px;
+    }
 }
 .name{
     display: flex;

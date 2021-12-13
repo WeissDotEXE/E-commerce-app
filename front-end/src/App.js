@@ -25,7 +25,9 @@ import Login from "./components/Auth/Login";
 
 function App() {
   const [isCartEmpty, setIsCartEmpty] = useState(
-    useSelector((state) => state.cart.totalProducts)
+    (prevCart)=>{
+      return 
+    }
   );
 
   return (
@@ -59,8 +61,7 @@ function App() {
           <Cart />
         </Route>
         <Route path="/sendorder" exact>
-          {isCartEmpty>0 && <SendOrder />}
-          {isCartEmpty===0&& <Redirect to='/'/>}
+          <SendOrder />
         </Route>
         <Route path="/admin/orders" exact>
           <Orders />

@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import styles from "../Styles/SendOrder.module.scss";
+import { Redirect } from "react-router-dom";
 
 import Form from "../UI/Form";
 import Button from "../UI/Button";
@@ -56,71 +57,77 @@ const SendOrder = () => {
     setPayment(event.target.value);
   };
 
+  const verifyInformation = () => {
+    return firstName && lastName && adress ? "/admin" : "/cart";
+  };
+
   return (
-    <Fragment id={styles.sendOrder}>
+    <div id={styles.sendOrder}>
       <Link to="/cart">
         <Button id={styles.backBtn}>Back</Button>
       </Link>
       <h1 id={styles.headerTxt}>Send order</h1>
-      <Form onSubmit={sendOrderHandler}>
-        <div className={styles.name}>
-          <label htmlFor="fName">First name</label>
-          <input
-            type="text"
-            id="fName"
-            value={firstName}
-            onChange={firstNameHandler}
-          />
-
-          <label htmlFor="lname">Last name</label>
-          <input type="text" value={lastName} onChange={lastNameHandler} />
-        </div>
-
-        <label htmlFor="adress">Adress</label>
-        <input type="text" value={adress} onChange={adressHandler} />
-
-        <div className={styles.payment}>
-          <h1>Payment type </h1>
-          <input
-            type="radio"
-            id="card"
-            name="card"
-            value="card"
-            checked={payment === "card"}
-            onChange={paymentHandler}
-          />
-          <label htmlFor="card">
-            Card <i class="fas fa-credit-card"></i>
-          </label>
-          <input
-            type="radio"
-            id="cash"
-            name="cash"
-            value="cash"
-            checked={payment === "cash"}
-            onChange={paymentHandler}
-          />
-          <label htmlFor="cash">
-            Cash <i class="fas fa-money-bill-wave-alt"></i>
-          </label>
-        </div>
-
-        <div className={styles.products}>
-          {products.map((product) => (
-            <ProductHover
-              name={product.name}
-              price={product.price}
-              quantity={product.quantity}
-              image={product.image}
+      <div className={styles.orderForm}>
+        <Form onSubmit={sendOrderHandler}>
+          <div className={styles.name}>
+            <label htmlFor="fName">First name</label>
+            <input
+              type="text"
+              id="fName"
+              value={firstName}
+              onChange={firstNameHandler}
             />
-          ))}
-          <h1>Total price: {totalPrice}$</h1>
-        </div>
-        <Button id={styles.submitBtn} type="submit">
-          Send order for real now!
-        </Button>
-      </Form>
-    </Fragment>
+
+            <label htmlFor="lname">Last name</label>
+            <input type="text" value={lastName} onChange={lastNameHandler} />
+          </div>
+
+          <label htmlFor="adress">Adress</label>
+          <input type="text" value={adress} onChange={adressHandler} />
+
+          <div className={styles.payment}>
+            <h1>Payment type </h1>
+            <input
+              type="radio"
+              id="card"
+              name="card"
+              value="card"
+              checked={payment === "card"}
+              onChange={paymentHandler}
+            />
+            <label htmlFor="card">
+              Card <i class="fas fa-credit-card"></i>
+            </label>
+            <input
+              type="radio"
+              id="cash"
+              name="cash"
+              value="cash"
+              checked={payment === "cash"}
+              onChange={paymentHandler}
+            />
+            <label htmlFor="cash">
+              Cash <i class="fas fa-money-bill-wave-alt"></i>
+            </label>
+          </div>
+
+          <div className={styles.products}>
+            {products.map((product) => (
+              <ProductHover
+                name={product.name}
+                price={product.price}
+                quantity={product.quantity}
+                image={product.image}
+              />
+            ))}
+            <h1>Total price: {totalPrice}$</h1>
+          </div>
+          <Button id={styles.submitBtn} type="submit">
+            Send order for real now!
+          </Button>
+        </Form>
+      </div>
+    </div>
   );
 };
 
